@@ -12,7 +12,7 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application.
     application
-    id("org.openjfx.javafxplugin") version "0.0.9"
+    id("org.openjfx.javafxplugin") version "0.0.13"
 
 }
 
@@ -27,12 +27,13 @@ repositories {
 
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+    	languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 javafx {
-    version = "11.0.2"
+    version = "18"
     modules = listOf("javafx.controls", "javafx.fxml", "javafx.web", "javafx.swing")
 }
 
